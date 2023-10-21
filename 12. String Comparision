@@ -1,0 +1,42 @@
+Method Class :-
+
+public class EX2 {
+
+    public static boolean compareStrings(String str1, String str2) {
+        return str1.equals(str2);
+    }
+
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+
+        if (compareStrings(str1, str2)) {
+            System.out.println("The strings are equal.");
+        } else {
+            System.out.println("The strings are not equal.");
+        }
+    }
+}
+
+
+Test class:-
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class   {
+
+    public boolean compareStrings(String str1, String str2) {
+        return str1.equals(str2);
+    }
+
+    @Test
+    public void testStringComparison() {
+
+        assertTrue(EX2.compareStrings("Hello", "Hello"));
+        assertFalse(EX2.compareStrings("Hello", "World")); 
+        assertFalse(EX2.compareStrings("hello", "Hello"));
+        assertTrue(EX2.compareStrings("", ""));
+        assertFalse(EX2.compareStrings("Hello", null));
+    }
+}
