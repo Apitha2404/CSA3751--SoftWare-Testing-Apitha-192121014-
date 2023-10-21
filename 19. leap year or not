@@ -1,0 +1,30 @@
+Method Class :-
+public class EX9 {
+    public static void main(String[] args) {
+        // You can still use this main method for manual testing if needed.
+        // However, the primary testing will be done using JUnit test cases.
+isLeapYear(2021);
+    }
+
+    public static boolean isLeapYear(int year) {
+	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+	{System.out.print("true");}
+        return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+    }
+}
+
+Test Class :-
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class EX9TEST {
+
+    @Test
+    public void testLeapYear() {
+        assertTrue(EX9.isLeapYear(2020));  // 2020 is a leap year
+        assertTrue(EX9.isLeapYear(2000));  // 2000 is a leap year
+        assertFalse(EX9.isLeapYear(1990)); // 1900 is not a leap year
+        assertFalse(EX9.isLeapYear(2021)); // 2021 is not a leap year
+    }
+}
