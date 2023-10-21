@@ -1,0 +1,58 @@
+Method Class :-
+
+import java.util.Scanner;
+
+public class EX5 {
+
+    public static boolean isPalindrome(String str) {
+        // Removing spaces and converting to lowercase for case-insensitive comparison
+        str = str.replaceAll("\\s+", "").toLowerCase();
+
+        int left = 0;
+        int right = str.length() - 1;
+
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        if (isPalindrome(input)) {
+            System.out.println("The string is a palindrome.");
+        } else {
+            System.out.println("The string is not a palindrome.");
+        }
+
+        scanner.close();
+    }
+}
+
+
+Test Class :-
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class EX5TEST {
+
+    @Test
+    public void testIsPalindrome() {
+        assertTrue(EX5.isPalindrome("racecar"));
+        assertTrue(EX5.isPalindrome("Able was I ere I saw Elba"));
+        assertFalse(EX5.isPalindrome("Madam In Eden, I'm Adam"));
+        assertFalse(EX5.isPalindrome("hello"));
+        assertFalse(EX5.isPalindrome("world"));
+        assertTrue(EX5.isPalindrome("12321"));
+    }
+}
